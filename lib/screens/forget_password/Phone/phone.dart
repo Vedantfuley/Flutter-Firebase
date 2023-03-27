@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 
 import '../../../constants/sizes.dart';
 
-class ForgetPasswordMail extends StatelessWidget {
-  const ForgetPasswordMail({Key? key}) : super(key: key);
+class ForgetPasswordPhone extends StatelessWidget {
+  const ForgetPasswordPhone({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,12 +16,12 @@ class ForgetPasswordMail extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: DefaultSize * 4,),
-               FormHeaderWidget(
-                  image1: Forget,
-                  title1: ForgetPasswordTitle,
-                  subtitle1: ForgetPasswordSubTitle,
-                 crossAxisAlignment: CrossAxisAlignment.center,
-                 heightBetween: 30,
+              FormHeaderWidget(
+                image1: Forget,
+                title1: ForgetPasswordTitle,
+                subtitle1: ForgetPasswordSubTitle,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                heightBetween: 30,
 
               ),
               const SizedBox(height: FormHeight,),
@@ -31,9 +31,9 @@ class ForgetPasswordMail extends StatelessWidget {
                     TextFormField(
                       decoration:
                       const InputDecoration(
-                        label: Text(EMail),
-                        hintText: EMail,
-                        prefixIcon: Icon(Icons.mail_outline_outlined),
+                        label: Text(Phone),
+                        hintText: Phone,
+                        prefixIcon: Icon(Icons.mobile_friendly_rounded),
                       ),
                     ),
                     const SizedBox(height: 20,),
