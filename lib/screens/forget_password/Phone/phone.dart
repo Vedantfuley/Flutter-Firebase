@@ -5,29 +5,28 @@ import 'package:firebase/screens/forget_password/OTP/otpscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import "package:flutter/src/material/material_state.dart";
-import 'dart:ui';
 
 import '../../../constants/sizes.dart';
 
-class ForgetPasswordMail extends StatelessWidget {
-  const ForgetPasswordMail({Key? key}) : super(key: key);
+class ForgetPasswordPhone extends StatelessWidget {
+  const ForgetPasswordPhone({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: Colors.grey[50],
       body: SingleChildScrollView(
         child: Container(
           child: Column(
             children: [
-              SizedBox(height: DefaultSize * 3,),
-               FormHeaderWidget(
-                  image1: Forget,
-                  title1: OTPtitle,
-                  subtitle1: msg,
-                 crossAxisAlignment: CrossAxisAlignment.center,
-                 heightBetween: 30,
+              SizedBox(height: DefaultSize * 4,),
+              FormHeaderWidget(
+                image1: Forget,
+                title1: OTPtitle,
+                subtitle1: msg1,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                heightBetween: 30,
 
               ),
               const SizedBox(height: FormHeight,),
@@ -37,20 +36,20 @@ class ForgetPasswordMail extends StatelessWidget {
                     TextFormField(
                       decoration:
                       const InputDecoration(
-                        label: Text(EMail),
-                        hintText: EMail,
-                        prefixIcon: Icon(Icons.mail_outline_outlined),
+                        label: Text(Phone),
+                        hintText: Phone,
+                        prefixIcon: Icon(Icons.mobile_friendly_rounded),
                       ),
                     ),
                     const SizedBox(height: 20,),
-                    SizedBox(width: double.infinity,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(primary: Colors.black),
+                    SizedBox(width: double.maxFinite,
+                    child: ElevatedButton(
+
+                    style: ElevatedButton.styleFrom(primary: Colors.black),
                       onPressed: () {
-                        Get.to(() => OTPScreen());
+                      Get.to(() => OTPScreen());
                       },
                       child: Text("Next"),
-
                     ),)
                   ],
                 ),

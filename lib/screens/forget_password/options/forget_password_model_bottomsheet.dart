@@ -1,3 +1,4 @@
+import 'package:firebase/screens/forget_password/Phone/phone.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,7 +20,7 @@ class ForgetPasswordScreen {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(ForgetPasswordTitle),
+                  Text(ForgetPasswordTitle,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30),),
                   Text(ForgetPasswordSubTitle),
                   const SizedBox(height: 30,),
                   forgetpasswordwidget(
@@ -28,14 +29,17 @@ class ForgetPasswordScreen {
                       subtitle2: ResetviaEmail,
                       onTap: () {
                         Navigator.pop(context);
-                        Get.to(() => ForgetPasswordMail());
+                        Get.to(() => const ForgetPasswordMail());
                       }),
                   const SizedBox(height: 20,),
                   forgetpasswordwidget(
                       btnIcon: Icons.mobile_friendly_rounded,
                       title2: Phone,
                       subtitle2: ResetviaPhone,
-                      onTap: () {}),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Get.to(() => const ForgetPasswordPhone());
+                      }),
 
 
                 ],

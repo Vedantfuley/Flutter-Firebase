@@ -40,3 +40,9 @@ const String ForgetEmailTitle = "Enter your registered Email to receive OTP";
 
 const String EMail = "E-Mail";
 const String Phone = "Phone";
+
+
+const OTPtitle = "Verfication";
+const Message = "Enter the verification code here!!!";
+const msg = "Enter your E-Mail here";
+const msg1 = "Enter your Phone here";

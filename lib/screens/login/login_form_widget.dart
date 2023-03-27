@@ -1,8 +1,11 @@
 
 
 import 'package:firebase/constants/text_strings.dart';
+import 'package:firebase/screens/login/dashboard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../constants/sizes.dart';
 import '../forget_password/options/forget_password_btn_widget.dart';
@@ -52,7 +55,9 @@ class LoginForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.to(()=>dashboard());
+              },
               child: Text('LOGIN'),
               style: ElevatedButton.styleFrom(primary: Colors.black),),
           )

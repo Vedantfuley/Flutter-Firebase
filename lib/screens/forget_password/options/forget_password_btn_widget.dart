@@ -32,7 +32,10 @@ class forgetpasswordwidget extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title2,),
+                Text(title2,style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold
+                ),),
                 Text(subtitle2),
               ],
             )
