@@ -13,3 +13,4 @@ const String Google = 'img/1024px-Google__G__Logo.jpg';
 const String WelcomeScreenPage = 'img/4845895-removebg-preview.png';
 
 const String Forget = 'img/pass/forget.jpg';
+const String email = "img/email.png";
