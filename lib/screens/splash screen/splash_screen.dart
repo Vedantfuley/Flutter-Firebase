@@ -25,85 +25,87 @@ class SplashScreens extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(FadeInAnimationController());
     controller.StartSplashAnimation();
-    return Scaffold(
-      body: Stack(
-        children: [
-          FadeInAnimation(durationInMs: 1600,
-              animate: TAnimatePosition(
-                topAfter: 0, topBefore: -30, leftBefore: -30, leftAfter: 0,
-              ),
-              child: Container(
-                height: 110,
-                width: 260,
-                decoration: BoxDecoration(
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
+          children: [
+            FadeInAnimation(durationInMs: 1600,
+                animate: TAnimatePosition(
+                  topAfter: 0, topBefore: -30, leftBefore: -30, leftAfter: 0,
+                ),
+                child: Container(
+                  height: 110,
+                  width: 260,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.greenAccent,
+                  ),
+                )),
+
+            FadeInAnimation(
+                durationInMs: 2000,
+                 animate: TAnimatePosition(
+                   topBefore: 80,
+                   topAfter: DefaultSize,
+                   leftBefore: -80,
+                 ),
+                 child: Container(
+                 height: 110,
+                 width: 260,
+                  decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.greenAccent,
-                ),
-              )),
+                  ),
+      ),
+      ),
 
-          FadeInAnimation(
-              durationInMs: 2000,
-               animate: TAnimatePosition(
-                 topBefore: 80,
-                 topAfter: DefaultSize,
-                 leftBefore: -80,
-               ),
-               child: Container(
-               height: 110,
-               width: 260,
-                decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.greenAccent,
+            FadeInAnimation(
+                durationInMs: 2000,
+                animate: TAnimatePosition(
+                    topBefore: 80,
+                  topAfter: DefaultSize,
+                  ),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(AppName,style: TextStyle(
+                        fontSize: 30,),),
+                      Text(AppTagLine,style:
+                      TextStyle(
+                        fontSize: 50,
+                        letterSpacing: 2,
+                      ),
+                      ),
+                    ],
+                  ),
                 ),
-    ),
-    ),
 
-          FadeInAnimation(
-              durationInMs: 2000,
+            FadeInAnimation(
+              durationInMs: 2400,
               animate: TAnimatePosition(
-                  topBefore: 80,
-                topAfter: DefaultSize,
-                ),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(AppName,style: TextStyle(
-                      fontSize: 30,),),
-                    Text(AppTagLine,style:
-                    TextStyle(
-                      fontSize: 50,
-                      letterSpacing: 2,
-                    ),
-                    ),
-                  ],
-                ),
-              ),
+                  bottomBefore: 0,
+                  bottomAfter: 100),
+              child:  Image.asset(SplashImage),
+            ),
+
 
           FadeInAnimation(
             durationInMs: 2400,
             animate: TAnimatePosition(
                 bottomBefore: 0,
-                bottomAfter: 100),
-            child:  Image.asset(SplashImage),
-          ),
-
-
-        FadeInAnimation(
-          durationInMs: 2400,
-          animate: TAnimatePosition(
-              bottomBefore: 0,
-              bottomAfter: 60,
-              rightBefore: DefaultSize,
-              rightAfter: DefaultSize),
-          child: Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                    color: Colors.greenAccent,
-                  ),
-                )),
-    ],
+                bottomAfter: 60,
+                rightBefore: DefaultSize,
+                rightAfter: DefaultSize),
+            child: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(100),
+                      color: Colors.greenAccent,
+                    ),
+                  )),
+      ],
+        ),
       ),
     );
   }

@@ -7,6 +7,7 @@ import 'package:firebase/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../constants/text_strings.dart';
 import '../constants/sizes.dart';
 import '../constants/text_strings.dart';
@@ -45,8 +46,10 @@ class WelcomeScreen extends StatelessWidget {
                   height: height * 0.6,),
                   Column(
                     children: [
-                      Text(Title1,style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,letterSpacing: 0),),
-                      Text(Subtitle,style: Theme.of(context).textTheme.bodyText1,textAlign: TextAlign.center,),
+                      Text(Title1,style: GoogleFonts.montserrat
+                      (fontSize: 30,fontWeight: FontWeight.bold,letterSpacing: 0),),
+                      SizedBox(height: 10,),
+                      Text(Subtitle,style: GoogleFonts.montserrat(),textAlign: TextAlign.center,),
                     ],
                   ),
                   Row(
