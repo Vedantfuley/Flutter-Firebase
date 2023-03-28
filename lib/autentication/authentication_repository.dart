@@ -1,6 +1,9 @@
 
 
 import 'package:firebase/autentication/Signup_email_password.dart';
+import 'package:firebase/autentication/failure.dart';
+import 'package:firebase/screens/Liquid_swipe.dart';
+import 'package:firebase/screens/splash%20screen/splash_screen.dart';
 import 'package:firebase/screens/welcome_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -16,7 +19,7 @@ late final Rx<User?> firebaseUser;
 
 @override
   void onReady() {
-  firebaseUser= Rx<User?>(_auth.currentUser);
+  firebaseUser = Rx<User?>(_auth.currentUser);
   firebaseUser.bindStream(_auth.userChanges());
   ever(firebaseUser, _setInitialScreen);
 
@@ -25,7 +28,7 @@ late final Rx<User?> firebaseUser;
 
 
   _setInitialScreen(User? user) {
-  user ==null? Get.offAll(()=> const WelcomeScreen()) : Get.offAll(() => const dashboard());
+  user ==null? Get.offAll(()=>  SplashScreens()) : Get.offAll(() => const dashboard());
   }
 
   Future<void> createUserEmailAndPassword(String email, String password) async {
@@ -46,8 +49,17 @@ late final Rx<User?> firebaseUser;
   Future<void> LoginWithEmailAndPassword(String email, String password) async {
     try{
       await _auth.signInWithEmailAndPassword(email: email, password: password);
+      firebaseUser.value != null ? Get.offAll(() => const dashboard()) : Get.to(() => WelcomeScreen());
     }on FirebaseAuthException catch(e){
-    }catch(_){}
+      final ex = LoginWithEmailAndPasswordFailure.code(e.code);
+      print('FIREBASE AUTH EXCEPTION - ${ex.messages}');
+      throw ex;
+    }catch(_){
+      const ex = LoginWithEmailAndPasswordFailure();
+      print('EXCEPTION - ${ex.messages}');
+      throw ex;
+    }
   }
+
   Future<void> logout() async => await _auth.signOut();
 }

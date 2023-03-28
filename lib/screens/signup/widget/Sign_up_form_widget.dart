@@ -25,7 +25,6 @@ class SignUpFormWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextFormField(
-                
               controller: controller.fullName,
                 decoration: const InputDecoration(
                     label: Text('Full Name'),

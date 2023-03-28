@@ -1,5 +1,6 @@
 import 'package:firebase/firebase_options.dart';
 import 'package:firebase/pages/loading.dart';
+import 'package:firebase/screens/login/dashboard.dart';
 import 'package:firebase/screens/signup/signup_screen.dart';
 import 'package:firebase/screens/splash%20screen/splash_screen.dart';
 import 'package:firebase/themes/theme.dart';
@@ -11,7 +12,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'autentication/authentication_repository.dart';
 import 'screens/login/login_screen.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
       .then((value) => Get.put(Authentication()));
@@ -27,6 +28,9 @@ void main() {
     routes: {
         '/signupscreen': (context) => const SignUpScreen(),
         '/Login' : (context) => const LoginScreen(),
+      '/dash' : (context) => const dashboard(),
+
+
     }
 
   ));

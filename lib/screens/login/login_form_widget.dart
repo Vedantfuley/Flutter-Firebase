@@ -1,7 +1,9 @@
 
 
 import 'package:firebase/constants/text_strings.dart';
+import 'package:firebase/controller/logincontorller.dart';
 import 'package:firebase/screens/login/dashboard.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,11 +20,17 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String email = "", pass = "";
+
     return Form(
+
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextFormField(
+            onChanged: (value){
+              email=value;
+            },
             decoration: const InputDecoration(
               prefixIcon: Icon(Icons.person_outline_outlined),
               labelText: 'E-Mail',
@@ -33,6 +41,9 @@ class LoginForm extends StatelessWidget {
           SizedBox(height: 20),
 
           TextFormField(
+            onChanged: (value){
+              pass=value;
+            },
             decoration: const InputDecoration(
               prefixIcon: Icon(Icons.fingerprint),
               labelText: 'Password',
@@ -55,8 +66,20 @@ class LoginForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {
-                Get.to(()=>dashboard());
+              onPressed: () async {
+                try {
+                  UserCredential userCredential = await FirebaseAuth
+                      .instance
+                      .signInWithEmailAndPassword(
+                      email: email, password: pass);
+                  Navigator.pushNamed(context, '/dash');
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'user-not-found') {
+                    print('No user found for that email.');
+                  } else if (e.code == 'wrong-password') {
+                    print('Wrong password provided for that user.');
+                  }
+                }
               },
               child: Text('LOGIN'),
               style: ElevatedButton.styleFrom(primary: Colors.black),),
