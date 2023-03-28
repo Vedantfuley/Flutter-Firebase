@@ -15,7 +15,7 @@ class ForgetPasswordPhone extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: Colors.grey[50],
+      backgroundColor: Colors.yellow[50],
       body: SingleChildScrollView(
         child: Container(
           child: Column(

@@ -14,6 +14,7 @@ class ForgetPasswordMail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.yellow[50],
       body: SingleChildScrollView(
         child: Container(
           child: Column(
@@ -21,8 +22,8 @@ class ForgetPasswordMail extends StatelessWidget {
               SizedBox(height: DefaultSize * 4,),
                FormHeaderWidget(
                   image1: Forget,
-                  title1: ForgetPasswordTitle,
-                  subtitle1: ForgetPasswordSubTitle,
+                  title1: OTPtitle,
+                  subtitle1: msg,
                  crossAxisAlignment: CrossAxisAlignment.center,
                  heightBetween: 30,
 

@@ -17,7 +17,7 @@ class OTPScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Scaffold(
 
-      backgroundColor: Colors.purpleAccent[50],
+      backgroundColor: Colors.purple[50],
       body: Container(
         padding: const EdgeInsets.all(DefaultSize),
         child: Column(

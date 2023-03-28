@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../constants/image_strings.dart';
 import '../../constants/text_strings.dart';
@@ -29,7 +30,7 @@ class FormHeaderWidget extends StatelessWidget {
       children: [
         Center(child: Image(image: AssetImage(image1), height: size.height * 0.2)),
         SizedBox(height: 20,),
-        Center(child: Text(title1, textAlign: TextAlign.center,style: TextStyle(fontSize: 15,))),
+        Center(child: Text(title1, textAlign: TextAlign.center,style: GoogleFonts.montserrat(fontSize: 20,fontWeight: FontWeight.bold))),
         Center(child: Text(subtitle1,textAlign: TextAlign.center,),
         )],
     );
