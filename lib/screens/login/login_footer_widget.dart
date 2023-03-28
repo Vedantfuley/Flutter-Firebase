@@ -2,15 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../constants/image_strings.dart';
 import '../signup/signup_screen.dart';
 
 class LoginFooterWidget extends StatelessWidget {
-  const LoginFooterWidget({
+   LoginFooterWidget({
     super.key,
   });
-
+    final GoogleSignIn _googleSignIn = GoogleSignIn();
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -25,7 +26,14 @@ class LoginFooterWidget extends StatelessWidget {
             width: double.infinity,
 
             child: OutlinedButton.icon(icon: Image(image: AssetImage(Google),width: 20,),
-                    onPressed: () {},
+                    onPressed: () {
+                      _googleSignIn.signIn().then((value) {
+                        String username = value!.displayName!;
+                        String profilePicture = value!.photoUrl!;
+                        Navigator.pushReplacementNamed(context, '/dash');
+
+                      });
+                    },
                 style: OutlinedButton.styleFrom(primary: Colors.black,onSurface: Colors.black),
                 label: Text('Sign-In with Google')),
           ),

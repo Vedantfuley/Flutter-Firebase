@@ -46,7 +46,9 @@ class OTPScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(primary: Colors.black),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, '/dash');
+                  },
                   child: const Text("Next")),
 
             ),

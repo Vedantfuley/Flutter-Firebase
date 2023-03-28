@@ -28,7 +28,7 @@ late final Rx<User?> firebaseUser;
 
 
   _setInitialScreen(User? user) {
-  user ==null? Get.offAll(()=>  SplashScreens()) : Get.offAll(() => const dashboard());
+   Get.offAll(()=>  SplashScreens());
   }
 
   Future<void> createUserEmailAndPassword(String email, String password) async {

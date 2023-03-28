@@ -26,7 +26,7 @@ void main() async {
     home: SplashScreens(),
 
     routes: {
-        '/signupscreen': (context) => const SignUpScreen(),
+        '/signupscreen': (context) =>  SignUpScreen(),
         '/Login' : (context) => const LoginScreen(),
       '/dash' : (context) => const dashboard(),
 
